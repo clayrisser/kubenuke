@@ -2,7 +2,13 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/codejamninja/kubenuke.svg?style=social&label=Stars)](https://github.com/codejamninja/kubenuke)
 
-> nuke a kubernetes namespace
+> nuke a stuck kubernetes namespace
+
+**WARNING: this can leave orphaned resources**
+
+This tool will remove pesky namespaces that are stuck terminating. It follows the process spelled out by IBM at the following link.
+
+[https://www.ibm.com/support/knowledgecenter/SSBS6K_3.2.0/troubleshoot/ns_terminating.html](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.2.0/troubleshoot/ns_terminating.html)
 
 Please ★ this repo if you found it useful ★ ★ ★
 
@@ -12,13 +18,26 @@ Please ★ this repo if you found it useful ★ ★ ★
 npm install -g kubenuke
 ```
 
+## Usage
+
+```
+USAGE
+  $ kubenuke ns NS
+
+OPTIONS
+  -a, --api-url=api-url
+  -d, --debug
+  -t, --timeout=timeout
+  -y, --yes
+  --token=token
+
+EXAMPLE
+  $ kubenuke ns some-ns
+```
+
 ## Dependencies
 
 - [NodeJS](https://nodejs.org)
-
-## Usage
-
-[Contribute](https://github.com/codejamninja/kubenuke/blob/master/CONTRIBUTING.md) usage docs
 
 ## Support
 

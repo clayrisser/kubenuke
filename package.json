@@ -1,6 +1,6 @@
 {
   "name": "kubenuke",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "nuke a kubernetes namespace",
   "keywords": [
     "kubenuke",
@@ -112,7 +112,7 @@
   },
   "oclif": {
     "commands": "./lib/commands",
-    "bin": "dotstow",
+    "bin": "kubenuke",
     "plugins": [
       "@oclif/plugin-autocomplete",
       "@oclif/plugin-help"

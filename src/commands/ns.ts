@@ -26,7 +26,6 @@ export default class NS extends Command {
   async run() {
     const { flags, args } = this.parse(NS);
     const timeout = flags.timeout || 10000;
-    console.log();
     const shouldContinue =
       flags.yes ||
       (await new Promise((resolve) => {
@@ -35,8 +34,6 @@ export default class NS extends Command {
 
 Do you want to continue? [y|N] `,
           (answer) => {
-            // TODO: Log the answer in a database
-            console.log(`Thank you for your valuable feedback: ${answer}`);
             rl.close();
             resolve(answer.toLowerCase() === 'y');
           }
