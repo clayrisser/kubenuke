@@ -34,7 +34,7 @@ export default class KubeNuke {
   }
 
   async ns(name: string) {
-    const ns = await kubectl(['get', 'ns', name]);
+    const ns = await kubectl(['get', 'ns', name], { json: false, pipe: true });
     ns.spec.finalizers = [];
     let p: ExecaChildProcess | null = null;
     let { apiUrl } = this.options;
