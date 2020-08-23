@@ -63,7 +63,7 @@ export default class KubeNuke {
     });
     if (this.options.debug) console.log(res.data);
     p?.kill();
-    console.log(`nuked namespace '${name}'`);
+    console.log(`namespace "${name}" nuked`);
   }
 
   async getActiveCluster(
