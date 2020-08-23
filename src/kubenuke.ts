@@ -34,7 +34,7 @@ export default class KubeNuke {
   }
 
   async ns(name: string) {
-    const ns = await kubectl(['get', 'ns', name], { json: false, pipe: true });
+    const ns = await kubectl(['get', 'ns', name]);
     ns.spec.finalizers = [];
     let p: ExecaChildProcess | null = null;
     let { apiUrl } = this.options;
@@ -51,7 +51,9 @@ export default class KubeNuke {
     await new Promise(async (resolve, reject) => {
       try {
         setTimeout(resolve, this.options.timeout);
-        resolve(await kubectl(['delete', 'ns', name]));
+        resolve(
+          await kubectl(['delete', 'ns', name], { json: false, pipe: true })
+        );
       } catch (err) {
         reject(err);
       }
