@@ -1,0 +1,9 @@
+{
+  "language": "en",
+  "version": "0.1",
+  "words": [
+    "kube",
+    "kubernetes",
+    "oclif"
+  ]
+}
