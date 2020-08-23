@@ -3,6 +3,7 @@
   "version": "0.1",
   "words": [
     "kube",
+    "kubenuke",
     "kubernetes",
     "oclif"
   ]
