@@ -18,6 +18,7 @@ export default class KubeNuke {
   constructor(options: Partial<KubeNukeOptions>) {
     this.options = {
       debug: false,
+      timeout: 10000,
       ...options
     };
     const axios = createAxios({ debug: this.options.debug });
@@ -47,6 +48,14 @@ export default class KubeNuke {
       apiUrl = `http://localhost:${port}/${relativeServerPath}`;
       await new Promise((r) => setTimeout(r, 500));
     }
+    await new Promise(async (resolve, reject) => {
+      try {
+        setTimeout(resolve, this.options.timeout);
+        resolve(await kubectl(['delete', 'ns', name]));
+      } catch (err) {
+        reject(err);
+      }
+    });
     const res = await this.api.put(`/api/v1/namespaces/${name}/finalize`, ns, {
       baseURL: apiUrl
     });
@@ -108,5 +117,6 @@ export interface KubeNukeOptions {
   apiUrl?: string;
   cluster?: string;
   debug: boolean;
+  timeout: number;
   token?: string;
 }

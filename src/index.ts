@@ -1,1 +1,5 @@
-export default class Hello {}
+import KubeNuke from './kubenuke';
+
+export { KubeNuke };
+
+export * from './kubenuke';
