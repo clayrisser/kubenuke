@@ -4,6 +4,8 @@
 
 > nuke a stuck kubernetes namespace
 
+![](assets/kubenuke.png)
+
 **WARNING: this can leave orphaned resources**
 
 This tool will remove pesky namespaces that are stuck terminating. It follows the process spelled out by IBM at the following link.
